@@ -22,7 +22,7 @@ COPY requirements.txt /requirements.txt
 RUN apt-get install -y \
   swig cmake mecab libmecab-dev mecab-ipadic mecab-ipadic-utf8
 
-pip3.6 install mecab-python3
+RUN pip3.6 install mecab-python3
 {% endif %}
 
 # settings
