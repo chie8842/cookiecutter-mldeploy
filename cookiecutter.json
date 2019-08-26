@@ -1,0 +1,5 @@
+{
+    "repo_name": "Hello",
+    "open_source_license: ["MIT", "BSD-3", "GNU GPL v3.0", "Apache Software License 2.0"]
+    "use_mecab": [y, n]
+}

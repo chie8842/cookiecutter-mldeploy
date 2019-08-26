@@ -1,0 +1,12 @@
+gensim
+awscli
+psycopg2
+SQLAlchemy
+sqlalchemy-redshift
+tqdm
+ipython-sql==0.3.5
+jupyter
+hyperdash
+joblib
+matplotlib
+jupyterlab
