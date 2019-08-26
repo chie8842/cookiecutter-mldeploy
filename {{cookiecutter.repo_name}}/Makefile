@@ -1,4 +1,4 @@
-include setenv.sh
+include env.sh
 
 IMAGE_NAME={{cookiecutter.repo_name}}
 DOCKER_OPTS= "-it \
@@ -15,10 +15,10 @@ DOCKER_OPTS= "-it \
 build-docker-no-cache:
 	docker build --no-cache -t $(IMAGE_NAME) -f docker/Dockerfile .
 build-docker:
-	docker build -t IMAGE_NAME -f docker/Dockerfile .
+	docker build -t $(IMAGE_NAME) -f docker/Dockerfile .
 build-exp-docker:
 	@if test `docker image ls| grep $(IMAGE_NAME)|wc -l` != 1; then make build-docker; fi
-	docker build -t IMAGE_NAME -f docker/Dockerfile.ex .
+	docker build -t $(IMAGE_NAME)_ex -f docker/Dockerfile.ex .
 run-train:
 	docker run \
 	$(DOCKER_OPTS) \
@@ -44,5 +44,5 @@ run-exp:
 	$(DOCKER_OPTS) \
 	-p JUPYTER_PORT=$(JUPYTER_PORT) \
 	-e JUPYTER_PORT=$(JUPYTER_PORT) \
-	$(IMAGE_NAME) \
+	$(IMAGE_NAME)_ex \
 	/bin/bash
